@@ -2,12 +2,12 @@
 
 ## Introduction
 
-
 ## Table of Contents
   * [Business Requirements](#business-requirements)
   * [Hypothesis and how to Validate](#hypothesis-and-how-to-validate)
   * [Rationale to map business requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
   * [ML Business Case](#ml-business-case)
+  * [Dashboard Design](#dashboard-design---streamlit-app-user-interface)
 
 ## Business Requirements
 
@@ -26,7 +26,7 @@ Summary:
 
 [Table Of Contents](#table-of-contents)
 
-## Hypothesis and how to Validate?
+## Hypothesis and how to Validate
 
 1. Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearace.
     * An average image study will help to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
@@ -63,10 +63,37 @@ Summary:
 
 [Table Of Contents](#table-of-contents)
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-* Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
+## Dashboard Design - Streamlit App User Interface
 
+### Page 1: Intoduction
+* General Information about powdery mildew.
+* Details of the project dataset.
+* Business requirements.
+* Link to this Readme file
+
+### Page 2: Leaf Visulaizer
+* This page will fulfill business requirement 1.
+* Show the difference between the average and variability image.
+* Show the difference between average healthy leaves and leaves infected with powdery mildew.
+* Show an image montage of healthy leaves and leaves infected with powdery mildew.
+
+### Page 3: Powdery Mildew Detector
+* This page will fulfill business requirements 2 and 3 by predicting if a leaf is infected with powdery mildew or not.
+* Link to download a set of images showing healthy leaves and leaves infected with powdery mildew for live prediction.
+* User Interface with a file uploader widget to allow the user to upload multiple leaf images. It will display the image and a prediction statement, indicating if the leaf is infected with powdery mildew or not and the probability associated with this prediction.
+* Report with image name and prediction result.
+* Download button to download the report.
+
+### Page 4: Project Hypothesis and Validation
+* Detail each [hypothesis](#hypothesis-and-how-to-validate), how it was validated and the conclusion.
+
+### Page 5: ML Performance Metrics
+* Details of the model performance including:
+    * Label frequencies for train, validation and test sets
+    * Model history - accuracy and losses
+    * Model evaluation result
+
+[Table Of Contents](#table-of-contents)
 
 ## Unfixed Bugs
 * You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
@@ -85,10 +112,8 @@ Summary:
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file. 
 
-
 ## Main Data Analysis and Machine Learning Libraries
 * Here you should list the libraries used in the project and provide an example(s) of how you used these libraries.
-
 
 ## Credits 
 
@@ -107,6 +132,7 @@ Summary:
 - The images used for the gallery page were taken from this other open-source site.
 
 
-
 ## Acknowledgements (optional)
 * Thank the people that provided support throughout this project.
+
+
