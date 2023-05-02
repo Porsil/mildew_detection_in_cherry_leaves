@@ -28,7 +28,7 @@ Summary:
 
 ## Hypothesis and how to Validate
 
-1. Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearace.
+1. Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
     * An average image study will help to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
 2. Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
     * A model can be trained and validated to achieve a degree of 97% accuracy. The accuracy will be tested using the test set which should also achieve 97% accuracy.
@@ -38,7 +38,7 @@ Summary:
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
 * Business Requirement 1: Data Visualization
-    * The 'mean'and 'standard deviation' images for healthy and powdery mildrew infected leaves will be displayed.
+    * The 'mean' and 'standard deviation' images for healthy and powdery mildew infected leaves will be displayed.
     * The difference between an average healthy leaf and an average powdery mildew infected leaf will be displayed.
     * An image montage for both healthy leaves and powdery mildew infected leaves will be displayed.
 
@@ -54,10 +54,10 @@ Summary:
 ## ML Business Case
 
 * Create a machine Learning model to predict if a leaf is healthy or infected with powdery mildew, based on an image dataset of historical data containing both healthy and powdery mildew infected leaves. It is a supervised, 2-class, single-label, classification model.
-* The model outcome will idally provide the client with a reliable and faster way to diagnose if a tree is infected with powdery mildew or not.
+* The model outcome will ideally provide the client with a reliable and faster way to diagnose if a tree is infected with powdery mildew or not.
 * The model will be succesfull if an accuracy of at least 97% is obtained on the test set.
 * The model output is defined as a flag, indicating if the leaf is infected with powdery mildew or not and the associated probability of being infected or not. The farmers will take a picture of a leaves and upload them to the App.
-* Heuristics: The currect detection process is manual verification, where an employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. With thousands of trees there is the possability to produce inaccurate diagnostics due to human errors.
+* Heuristics: The current detection process is manual verification, where an employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. With thousands of trees there is the possibility to produce inaccurate diagnostics due to human errors.
 * The dataset contains 4208 images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew.
 * The dataset is located on [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves).
 
@@ -65,14 +65,14 @@ Summary:
 
 ## Dashboard Design - Streamlit App User Interface
 
-### Page 1: Intoduction
+### Page 1: Introduction
 * General Information about powdery mildew.
 * Details of the project dataset.
 * Business requirements.
 * Link to this Readme file
 
-### Page 2: Leaf Visulaizer
-* This page will fulfill business requirement 1.
+### Page 2: Leaf Visualizer
+* This page will fulfil business requirement 1.
 * Show the difference between the average and variability image.
 * Show the difference between average healthy leaves and leaves infected with powdery mildew.
 * Show an image montage of healthy leaves and leaves infected with powdery mildew.
