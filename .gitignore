@@ -13,4 +13,3 @@ inputs/train
 outputs/v2/mildew_detector_model.h5
 outputs/v3/mildew_detector_model.h5
 outputs/v4/mildew_detector_model.h5
-outputs/v5/mildew_detector_model.h5

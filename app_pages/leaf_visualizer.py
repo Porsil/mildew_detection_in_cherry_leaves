@@ -21,7 +21,7 @@ def leaf_visualizer_body():
         f"between leaves from a healthy tree and leaves from a tree infected "
         f"with powdery mildew.")
 
-    version = 'v1'
+    version = 'v5'
     if st.checkbox("Difference between average and variability image"):
 
         avg_infected = plt.imread(

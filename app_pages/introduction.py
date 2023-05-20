@@ -57,4 +57,4 @@ def introduction_body():
 
     st.write(
         f"* For additional information, please visit the project "
-        f"[README file](https: // github.com/Porsil/mildew_detection_in_cherry_leaves/blob/main/README.md).")
+        f"[README file](https://github.com/Porsil/mildew_detection_in_cherry_leaves/blob/main/README.md).")
