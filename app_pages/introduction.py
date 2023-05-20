@@ -48,13 +48,13 @@ def introduction_body():
     st.info(
         f"### **Business Requirements**\n\n"
         f"1 - The client is interested in conducting a study to visually "
-        f"differentiate a healthy cherry leaf from one with powdery mildew.\n\n"
+        f"differentiate a healthy cherry leaf from one with powdery mildew\n\n"
         f"2 - The client is interested in a dashboard that predicts if a "
-        f"cherry leaf is healthy or contains powdery mildew.\n\n"
+        f"cherry leaf is healthy or contains powdery mildew\n\n"
         f"3 - The client would like the dashboard to predict if a cherry "
-        f"leaf is healthy or contains powdery mildew with a 97% accuracy."
+        f"leaf is healthy or contains powdery mildew with a 97% accuracy"
         f" \n\n")
 
     st.write(
         f"* For additional information, please visit the project "
-        f"[README file](https://github.com/Porsil/mildew_detection_in_cherry_leaves/blob/main/README.md).")
+        f"[README file](https: // github.com/Porsil/mildew_detection_in_cherry_leaves/blob/main/README.md).")
