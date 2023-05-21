@@ -44,7 +44,9 @@ def powdery_mildew_detector_body():
                 resized_img, version=version)
             plot_predictions_probabilities(pred_proba, pred_class)
 
-            df_report = df_report.append({"Name": image.name, 'Result': pred_class},
+            result_proba = pred_proba * 100
+
+            df_report = df_report.append({"Name": image.name, 'Result': pred_class, 'Probability %': result_proba},
                                          ignore_index=True)
 
         if not df_report.empty:
