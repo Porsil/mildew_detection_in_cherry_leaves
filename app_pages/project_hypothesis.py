@@ -36,5 +36,5 @@ def project_hypothesis_body():
         f"The model was successfully trained using a Convolutional Neural "
         f"Network to classify if an image of a cherry leaf is healthy or "
         f"infected with powdery mildew with a degree of accuracy of above "
-        f"99.99%."
+        f"99%."
         f"\n\n")
