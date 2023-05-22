@@ -18,7 +18,7 @@ Currently, the process is manual verification if a given cherry tree contains po
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops.
 
-The business case assessment interview can be found [here](business_interview.md).
+The business case assessment interview can be found [here](readme_files/business_interview.md).
 
 Summary:
 
