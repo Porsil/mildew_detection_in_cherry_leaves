@@ -2,9 +2,9 @@ import streamlit as st
 
 
 def project_hypothesis_body():
-    st.write("## Project Hypothesis and Validation")
+    st.write("## **Project Hypothesis and Validation**")
 
-    st.write("### Hypothesis 1")
+    st.write("* ### **Hypothesis 1**")
 
     st.info(
         f"Cherry leaves with powdery mildew can de differentiated from "
@@ -25,7 +25,7 @@ def project_hypothesis_body():
         f"Visualiser' option on the sidebar menu."
         f"\n\n")
 
-    st.write("### Hypothesis 2")
+    st.write("* ### **Hypothesis 2**")
 
     st.info(
         f"Cherry leaves can be determined to be healthy or contain powdery "

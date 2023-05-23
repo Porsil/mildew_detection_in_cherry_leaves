@@ -8,7 +8,8 @@ from app_pages.powdery_mildew_detector import powdery_mildew_detector_body
 from app_pages.project_hypothesis import project_hypothesis_body
 from app_pages.performance_metrics import performance_metrics_body
 
-app = MultiPage(app_name="Mildew Detection in Cherry Leaves")
+app = MultiPage(
+    app_name=":cherries: Mildew Detection in Cherry Leaves :cherries:")
 
 app.add_page("Project Introduction", introduction_body)
 app.add_page("Leaf Visualiser", leaf_visualizer_body)

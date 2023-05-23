@@ -8,9 +8,9 @@ from src.machine_learning.evaluate_clf import load_test_evaluation
 def performance_metrics_body():
     version = 'v5'
 
-    st.write("## Performance Metrics")
+    st.write("## **Performance Metrics**")
 
-    st.write("### Train, Validation and Test Set: Labels Frequencies")
+    st.write("* ### Train, Validation and Test Set: Labels Frequencies")
 
     st.info(
         f"The dataset contains 4208 images. Half of the images show healthy "
@@ -27,7 +27,7 @@ def performance_metrics_body():
 
     st.write("---")
 
-    st.write("### Model History")
+    st.write("* ### Model History")
 
     st.info(
         f"The following plots show the model training accuracy and losses. "
@@ -51,7 +51,7 @@ def performance_metrics_body():
 
     st.write("---")
 
-    st.write("### Generalised Performance on Test Set")
+    st.write("* ### Generalised Performance on Test Set")
 
     st.dataframe(pd.DataFrame(load_test_evaluation(
         version), index=['Loss', 'Accuracy']))

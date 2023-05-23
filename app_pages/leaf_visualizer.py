@@ -11,7 +11,7 @@ import random
 
 
 def leaf_visualizer_body():
-    st.write("## Leaf Visualizer")
+    st.write("## **Leaf Visualizer**")
 
     st.info(
         f"The client is interested in conducting a study to visually "
