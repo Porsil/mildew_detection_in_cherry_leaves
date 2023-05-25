@@ -13,6 +13,17 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 - [Rationale to map business requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
 - [Dashboard Design](#dashboard-design---streamlit-app-user-interface)
+- [Methodology](#methodology)
+- [Project Features](#project-features)
+- [Project Outcomes](#project-outcomes)
+
+.....
+
+- [Hypothesis Outcomes](#hypothesis-outcomes)
+- [Testing](#testing)
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+ 
 
 ## Business Requirements
 
@@ -108,15 +119,180 @@ Summary:
 
 [Table Of Contents](#table-of-contents)
 
+## Methodology
+
+### CRISP-DM
+
+CRISP-DM (Cross Industry Standard Process for Data Mining) methodology was used for the data mining project. There are six stages to the process and have the following relationship:
+
+![CRISP_DM](readme_files/crisp-dm.png)
+
+### Agile
+
+An agile approach was implemented for the project using GitHub projects with the aid of Milestones and Issues. Each Issue detailed the relevant tasks to be completed.
+
+The project board can be viewed [here](https://github.com/users/Porsil/projects/7)
+
+[Table Of Contents](#table-of-contents)
+
 ## Project Features
+
+<details>
+
+<summary>Navigation</summary>
+
+The navigation bar is visible on all dashboard pages and provides easy links to other pages.
+
+![Menu](readme_files/menu.png)
+
+</details>
+
+<details>
+
+<summary>Page 1: Introduction</summary>
+
+The introducion page provides the user with information about powdery mildew, the project summary, the dataset and the business requirements. There is also a link to this ReadMe file.
+
+![Introduction](readme_files/introduction.png)
+
+</details>
+
+<details>
+
+<summary>Page 2: Leaf Visualizer</summary>
+
+The leaf visualizer page provides the user with the results of the study to visually differentiate a healthy cherry leaf from one with powdery mildew. It was determined that healthy leaves and infected leaves could be distinguished by their appearance.
+
+The page gives the user the options to view the difference between average and variability images, the differences between average infected and average uninfected leaves and an image montage of healthy or infected leaves.
+
+![Visualizer](readme_files/visualizer.png)
+
+</details>
+
+<details>
+
+<summary>Page 3: Powdery Mildew Detector</summary>
+
+The detector page allows the user to upload images of cherry leaves to determine if the leaf is healthy or infected with powdery mildew. Each image is presented with a prediction and a graph depicting the probability of the predictions accuracy. There is then a report detailing the image name, proability accuracy and result. This report is available to download into an Excel file.
+
+![Detector](readme_files/detector.png)
+
+</details>
+
+<details>
+
+<summary>Page 4: Project Hypothesis</summary>
+
+The hypothesis page provides the user with details of the project hypotheses and their outcomes.
+
+![Hypothesis](readme_files/hypothesis.png)
+
+</details>
+
+<details>
+
+<summary>Page 5: Performance Metrics</summary>
+
+The performance metrics page provides the user with the Machine Learning model dataset distribution, performance plots and performance on the test dataset.
+
+![Performance](readme_files/performance.png)
+
+</details>
+
+[Table Of Contents](#table-of-contents)
 
 ## Project Outcomes
 
 ## Hypothesis Outcomes
 
+### Hypothesis 1
+
+-	Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
+
+An image montage shows that leaves infected with powdery mildew are easily identified due to the present of white deposits on the leaves.
+The average and variability images showed a pattern within the center of the leaf related to colour pigmentation. This is most notable in the variability images where the center of the healthy leaves looks black and the center for the infected leaves is not.
+The difference between averages study did not show patterns where we could intuitively differentiate one from another.
+The image montage, average and variability images and the difference between averages study can be viewed by selecting the 'Leaf Visualiser' option on the sidebar menu.
+
+### Hypothesis 2
+
+-	Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
+
+The model was successfully trained using a Convolutional Neural Network to classify if an image of a cherry leaf is healthy or infected with powdery mildew with a degree of accuracy of above 99%.
+
+[Table Of Contents](#table-of-contents)
+
+## Testing
+
+<details>
+
+<summary>ML Model Testing</summary>
+
+The model testing can be viewed [here](readme_files/model_testing.pdf).
+
+</details>
+
+<details>
+
+<summary>Dashboard Testing</summary>
+
+| Page         | Feature                   | Pass / Fail |
+|--------------|:-------------------------:|:-----------:|
+| Introduction | Content                   | Pass        |
+| Introduction | Nav link                  | Pass        |
+| Introduction | ReadMe link               | Pass        |
+| Visualizer   | Content                   | Pass        |
+| Visualizer   | 1st checkbox ticked       | Pass        |
+| Visualizer   | 1st checkbox unticked     | Pass        |
+| Visualizer   | 2nd checkboz ticked       | Pass        |
+| Visualizer   | 2nd checkbox unticked     | Pass        |
+| Visualizer   | 3rd checkbox ticked       | Pass        |
+| Visualizer   | 3rd checkbox unticked     | Pass        |
+| Visualizer   | Healthy montage           | Pass        |
+| Visualiser   | Infected montage          | Pass        |
+| Detector     | Content                   | Pass        |
+| Detector     | Kaggle link               | Pass        |
+| Detector     | Drag add drop file upload | Pass        |
+| Detector     | Browse file upload        | Pass        |
+| Detector     | Show uploaded images      | Pass        |
+| Detector     | Show predictions          | Pass        |
+| Detector     | Show probability graph    | Pass        |
+| Detector     | Analysis report           | Pass        |
+| Detector     | Downloadable report       | Pass        |
+| Hypothesis   | Content                   | Pass        |
+| Performance  | Content                   | Pass        |
+
+</details>
+
+[Table Of Contents](#table-of-contents)
+
 ## Bugs
 
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+### Fixed Bugs
+
+<details>
+
+<summary>CodeAnywhere</summary>
+
+Several issues were encountered with the CodeAnywhere IDE.
+
+Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were complete to ensure my project was submitted on time. 
+
+Secondly, during the model training impacted by the first issue, often the code that was saved and committed did not match the code what was in the workspace. Autosave was enabled and all code double checked to be saved by selecting File>Save All before the ‘git add’ and ‘git commit’ commands. This is shown in the commit for v4 where the code in Jupyter notebook 03_modelling_and_evaluation shows an error message for fitting the model, if this was true the outputs for the model would not have been generated.
+
+Thirdly, when trying to commit the code for v3, the workspace would crash. Once re-opened the ‘git add’ command would produce the following error:
+
+![IDE_error](readme_files/ide_error.png)
+
+This was fixed by running the command ‘rm -f .git/index.lock’ as per this [Stack Overflow post](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository). The issue kept occurring so instead of using ‘git add .’ each file was added individually. This determined that the source of the error was the ‘mildew_detector_model.h5’. To fix the error this file was added to the .gitignore file. The same was done for v2-5, and only v5 was removed to complete the dashboard.
+
+</details>
+
+### Unfixed Bugs
+
+There are no known unfixed bugs.
+
+[Table Of Contents](#table-of-contents)
 
 ## Deployment
 

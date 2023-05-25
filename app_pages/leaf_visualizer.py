@@ -22,7 +22,7 @@ def leaf_visualizer_body():
         f"with powdery mildew.")
 
     version = 'v5'
-    if st.checkbox("Difference between average and variability image"):
+    if st.checkbox("Difference between average and variability images"):
 
         avg_infected = plt.imread(
             f"outputs/{version}/avg_var_powdery_mildew.png")
