@@ -30,8 +30,8 @@ def leaf_visualizer_body():
             f"outputs/{version}/avg_var_healthy.png")
 
         st.warning(
-            f"We notice in the average and variability images a slight pattern "
-            f"with the colour pigmentation of the leaf center.")
+            f"We notice in the average and variability images a pattern with "
+            f"the colour pigmentation of the leaf center.")
 
         st.image(avg_infected,
                  caption='Infected Leaf - Average and Variability')

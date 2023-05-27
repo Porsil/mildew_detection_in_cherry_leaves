@@ -16,13 +16,12 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 - [Methodology](#methodology)
 - [Project Features](#project-features)
 - [Project Outcomes](#project-outcomes)
-
-.....
-
 - [Hypothesis Outcomes](#hypothesis-outcomes)
 - [Testing](#testing)
 - [Bugs](#bugs)
 - [Deployment](#deployment)
+- [Languages and Libraries](#languages-and-libraries)
+- [Credits](#credits)
  
 
 ## Business Requirements
@@ -165,7 +164,10 @@ The leaf visualizer page provides the user with the results of the study to visu
 
 The page gives the user the options to view the difference between average and variability images, the differences between average infected and average uninfected leaves and an image montage of healthy or infected leaves.
 
-![Visualizer](readme_files/visualizer.png)
+![Visualizer_1](readme_files/visualizer_1.png)
+![Visualizer_2](readme_files/visualizer_2.png)
+![Visualizer_3](readme_files/visualizer_3.png)
+![Visualizer_4](readme_files/visualizer_4.png)
 
 </details>
 
@@ -173,7 +175,7 @@ The page gives the user the options to view the difference between average and v
 
 <summary>Page 3: Powdery Mildew Detector</summary>
 
-The detector page allows the user to upload images of cherry leaves to determine if the leaf is healthy or infected with powdery mildew. Each image is presented with a prediction and a graph depicting the probability of the predictions accuracy. There is then a report detailing the image name, proability accuracy and result. This report is available to download into an Excel file.
+The detector page allows the user to upload images of cherry leaves to determine if the leaf is healthy or infected with powdery mildew. Each image is presented with a prediction and a graph depicting the probability of the predictions accuracy. There is then a report detailing the image name, proability accuracy and result. This report is available to download into a .csv file, which can be viewed easily in Microsoft Excel.
 
 ![Detector](readme_files/detector.png)
 
@@ -203,22 +205,43 @@ The performance metrics page provides the user with the Machine Learning model d
 
 ## Project Outcomes
 
+### Business Requirement 1: Data Visualization
+
+The visualization study can be viewed on the [Leaf Visualizer page](https://cherry-leaf-mildew-detection.herokuapp.com/) of the dashboard. The study shows the mean and variability images and an image montage of both healthy and infected leaves. The concludes that healthy leaves and infected leaves can be distinguished by their appearance as leaves infected with powdery mildew exhibit white marks.
+
+### Business Requirement 2: Classification
+
+The classification tool can found on the [Powdery Mildew Detector page](https://cherry-leaf-mildew-detection.herokuapp.com/) of the dashboard. The user is able to upload images of cherry leaves and is given a classification prediction for each image along with a probability graph. The predictions have an accuracy level of above 97%.
+
+### Business Requirement 3: Report
+
+The report can be viewed on the [Powdery Mildew Detector page](https://cherry-leaf-mildew-detection.herokuapp.com/) of the dashboard once images have been classified. The user is presented with a table that shows the image name, probability % and result for each uploaded image. The user can also click 'Download Report' which downloads the report to a .csv file, which can be opened easily in Microsoft Excel.
+
+[Table Of Contents](#table-of-contents)
+
 ## Hypothesis Outcomes
 
 ### Hypothesis 1
 
 -	Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
 
-An image montage shows that leaves infected with powdery mildew are easily identified due to the present of white deposits on the leaves.
-The average and variability images showed a pattern within the center of the leaf related to colour pigmentation. This is most notable in the variability images where the center of the healthy leaves looks black and the center for the infected leaves is not.
+An image montage shows that leaves infected with powdery mildew are easily identified due to the present of white deposits on the infected leaves.
+The average and variability images showed a pattern within the center of the leaf related to colour pigmentation. This is most notable in the variability images where the center of the healthy leaves looks black whereas the center for the infected leaves is not.
+
+![Variability](readme_files/variability.png)
+
 The difference between averages study did not show patterns where we could intuitively differentiate one from another.
 The image montage, average and variability images and the difference between averages study can be viewed by selecting the 'Leaf Visualiser' option on the sidebar menu.
+
+Conclusion: Healthy leaves and infected leaves can be distinguished by their appearance as leaves infected with powdery mildew exhibit white marks.
 
 ### Hypothesis 2
 
 -	Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
 
-The model was successfully trained using a Convolutional Neural Network to classify if an image of a cherry leaf is healthy or infected with powdery mildew with a degree of accuracy of above 99%.
+The model accuracy was trained at over 99% with the train and validation datasets, and 100% accuracy was achieved on the test dataset.
+
+Conclusion: The model was successfully trained using a Convolutional Neural Network to classify if an image of a cherry leaf is healthy or infected with powdery mildew with a degree of accuracy of above 99%.
 
 [Table Of Contents](#table-of-contents)
 
@@ -276,7 +299,7 @@ The model testing can be viewed [here](readme_files/model_testing.pdf).
 
 Several issues were encountered with the CodeAnywhere IDE.
 
-Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were complete to ensure my project was submitted on time. 
+Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were complete to ensure my project was submitted on time. This issue also meant that early stopped was added to each model, as running all 25 epochs would take several hours and have a high risk of disconnection. This in turn meant that it was harder to detect if the model was overfitting.
 
 Secondly, during the model training impacted by the first issue, often the code that was saved and committed did not match the code what was in the workspace. Autosave was enabled and all code double checked to be saved by selecting File>Save All before the ‘git add’ and ‘git commit’ commands. This is shown in the commit for v4 where the code in Jupyter notebook 03_modelling_and_evaluation shows an error message for fitting the model, if this was true the outputs for the model would not have been generated.
 
@@ -298,37 +321,77 @@ There are no known unfixed bugs.
 
 ### Heroku
 
-- The App live link is: https://YOUR_APP_NAME.herokuapp.com/
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
+To deploy this app to Heroku from its GitHub repository:
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+#### Create a Heroku App:
+- Log in to [Heroku](https://dashboard.heroku.com/apps). If required, create an account.
+- Click the 'New' button in the top right and select 'Create new app' from the drop-down menu.
+- Enter a name for the app in the 'App name' field, this must be an unique and should be meaningful to the app's content.
+- Select your region in the 'Choose a region' field.
+- Click on the 'Create app' button.
 
-## Main Data Analysis and Machine Learning Libraries
+#### Deploy in Heroku
+- Ensure requirements.txt file exists and contains the dependancies.
+- Set the stack to Heroku-20 as follows:
+    - In Heroku, click 'Account Settings' from the avatar menu.
+    - Scroll to the 'API Key' section and click 'Reveal' then copy the key.
+    - In the workspace, Log in to the Heroku command line interface using 'heroku login -i'.
+    - Enter your email and copied API when prompted.
+    - Use the command 'heroku stack:set heroku-20 -a yourappname'. yourappname is the name given to the app in the 'Create a Heroku App' section above.
+- Ensure the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+- Ensure a Procfile is present and contains the code 'web: sh setup.sh && streamlit run app.py'.
+- Ensure the code is committed and pushed to GitHub.
+- In Heroku click on the 'Deploy' tab and scroll down to the 'Deployment Method' section. Select 'GitHub' and confirm you wish to deploy using GitHub. Enter your GitHub password if prompted.
+- Scroll to the 'Connect to GitHub' section and search for your repository.
+- Click 'Connect' when found.
+- To deploy go to the 'Manual Deploy' section add the 'main' branch to 'Choose a branch to deploy' field and click 'Deploy Branch'.
+- The app is now live, click 'View' to view the deployed site.
 
-- Here you should list the libraries used in the project and provide an example(s) of how you used these libraries.
+### Forking the repository
+- Open the [Mildew Detection in Cherry Leaves](https://github.com/Porsil/mildew_detection_in_cherry_leaves) repository.
+- Click the 'Fork' button in the top right.
+- This creates a copy of the repository.
+
+### Cloning the repository
+- Open the [Mildew Detection in Cherry Leaves](https://github.com/Porsil/mildew_detection_in_cherry_leaves) repository.
+- Click the green '<> Code' button. Select the preferred cloning option from the list then copy the link provided.
+- Change the current working directory to the location where you want the cloned directory.
+- Type 'git clone' and paste the URL you copied earlier.
+- Press 'Enter' to create your local clone.
+
+[Table Of Contents](#table-of-contents)
+
+## Languages and Libraries
+
+### Languages Used
+
+- Python
+
+### Frameworks, Libraries & Programs Used
+
+- [GitHub](https://github.com/) was used for version control and agile methodology.
+- [CodeAnywhere](https://codeanywhere.com/) was the workspace used for the project.
+- [Kaggle](https://www.kaggle.com/) was the source of the dataset.
+- [Jupyter Notebook](https://jupyter.org/) was used to run the machine learning pipeline.
+- [Joblib](https://joblib.readthedocs.io/en/latest/) for saving and loading image shape.
+- [NumPy](https://numpy.org/) was used to convert images into an array.
+- [Pandas](https://pandas.pydata.org/) was used for data analysis and manipulation.
+- [Matplotlib](https://matplotlib.org/) was used to create charts and plots.
+- [Seaborn](https://seaborn.pydata.org/) was used for data visualization.
+- [Plotly](https://plotly.com/) was used to create charts and plots.
+- [Streamlit](https://streamlit.io/) was used to create the dashboard.
+- [Scikit-learn](https://scikit-learn.org/stable/) was used as a machine learning library.
+- [Tensorflow](https://www.tensorflow.org/) was used as a machine learning library.
+- [Keras](https://keras.io/) was used as a machine learning library.
+- [Heroku](https://dashboard.heroku.com/login) was used to deploy the site.
+
+[Table Of Contents](#table-of-contents)
 
 ## Credits
 
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
+- Code Instiute [Malaria Detector](https://github.com/Code-Institute-Solutions/WalkthroughProject01) project was used extensively as a reference when creating this project.
+- Code Institue [Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) template was used to create the project.
+- This [StackOverflow](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository) post was used to fix the git add bug.
+- Details of powdery mildew were taken from this [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew) article.
 
-### Content
-
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
-
-## Acknowledgements (optional)
-
-- Thank the people that provided support throughout this project.
+[Table Of Contents](#table-of-contents)

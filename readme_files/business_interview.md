@@ -22,7 +22,7 @@
 - Dashboard deployment and release.
 
 6. Ethical or Privacy concerns?
-- The client provided the data under an NDA (non-disclosure agreement), therefore the data should only be shared with professionals that are officially involved in the project.
+- None
 
 7. Does the data suggest a particular model?
 - The data suggests a binary classifier, indicating whether a particular cherry leaf is healthy or contains powdery mildew.
