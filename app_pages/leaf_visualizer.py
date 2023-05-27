@@ -16,12 +16,12 @@ def leaf_visualizer_body():
     st.info(
         f"The client is interested in conducting a study to visually "
         f"differentiate a healthy cherry leaf from one with powdery mildew\n\n"
-        f"As powdery mildew can be identifed by white powdery spots on the "
-        f"leaves and stems, a visual difference should be clearly visable "
+        f"As powdery mildew can be identified by white powdery spots on the "
+        f"leaves and stems, a visual difference should be clearly visible "
         f"between leaves from a healthy tree and leaves from a tree infected "
         f"with powdery mildew.")
 
-    version = 'v5'
+    version = 'v1'
     if st.checkbox("Difference between average and variability images"):
 
         avg_infected = plt.imread(

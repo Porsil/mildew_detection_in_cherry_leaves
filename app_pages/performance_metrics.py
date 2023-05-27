@@ -6,7 +6,7 @@ from src.machine_learning.evaluate_clf import load_test_evaluation
 
 
 def performance_metrics_body():
-    version = 'v5'
+    version = 'v6'
 
     st.write("## **Performance Metrics**")
 
@@ -45,7 +45,7 @@ def performance_metrics_body():
         st.image(model_loss, caption='Model Training Losses')
 
     st.success(
-        f"Both plots suggests the model is not severly overfitting or "
+        f"Both plots suggests the model is not severely overfitting or "
         f"underfitting."
         f"\n\n")
 

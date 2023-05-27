@@ -22,7 +22,7 @@ def project_hypothesis_body():
         f"where we could intuitively differentiate one from another.\n\n The "
         f"image montage, average and variability images and the difference "
         f"between averages study can be viewed by selecting the 'Leaf "
-        f"Visualiser' option on the sidebar menu."
+        f"Visualizer' option on the sidebar menu."
         f"\n\n")
 
     st.write("* ### **Hypothesis 2**")

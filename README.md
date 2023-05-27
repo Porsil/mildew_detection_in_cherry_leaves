@@ -2,27 +2,33 @@
 
 ## Introduction
 
-Mildew detection in cherry leaves is a dashboard app that uses Machine Learning to enable the user to upload images of cherry leaves to determine if the tree is healthy or infected with powedery mildew, and download a report of the findings.
+Mildew detection in cherry leaves is a dashboard app that uses Machine Learning to enable the user to upload images of cherry leaves to determine if the tree is healthy or infected with powdery mildew, and download a report of the findings.
 
 [View the live project here](https://cherry-leaf-mildew-detection.herokuapp.com/)
 
 ## Table of Contents
-
+ 
 - [Business Requirements](#business-requirements)
 - [Hypothesis and how to Validate](#hypothesis-and-how-to-validate)
-- [Rationale to map business requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+- [Rational to Map Business Requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
+- [User Stories](#user-stories)
+
+...
 - [Dashboard Design](#dashboard-design---streamlit-app-user-interface)
 - [Methodology](#methodology)
 - [Project Features](#project-features)
 - [Project Outcomes](#project-outcomes)
+
+...
 - [Hypothesis Outcomes](#hypothesis-outcomes)
 - [Testing](#testing)
 - [Bugs](#bugs)
 - [Deployment](#deployment)
+
+...
 - [Languages and Libraries](#languages-and-libraries)
 - [Credits](#credits)
- 
 
 ## Business Requirements
 
@@ -45,9 +51,9 @@ Summary:
 ## Hypothesis and how to Validate
 
 1. Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
-   - An average image study will help to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
+   - This can be verified by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
 2. Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
-   - A model can be trained and validated to achieve a degree of 97% accuracy. The accuracy will be tested using the test set which should also achieve 97% accuracy.
+   - This can be verifed by evaluating the model on the test dataset, which should achieve at least 97% accuracy.
 
 [Table Of Contents](#table-of-contents)
 
@@ -61,7 +67,7 @@ Summary:
 
 - Business Requirement 2: Classification
 
-  - To predict if a given leaf is healthy or infected with powdery mildew.
+  - Create and fit a machine learning model to predict if a given leaf is healthy or infected with powdery mildew.
   - The predictions should have a 97% accuracy level.
 
 - Business Requirement 3: Report
@@ -73,13 +79,22 @@ Summary:
 
 - Create a machine Learning model to predict if a leaf is healthy or infected with powdery mildew, based on an image dataset of historical data containing both healthy and powdery mildew infected leaves. It is a supervised, 2-class, single-label, classification model.
 - The model outcome will ideally provide the client with a reliable and faster way to diagnose if a tree is infected with powdery mildew or not.
-- The model will be succesfull if an accuracy of at least 97% is obtained on the test set.
+- The model will be successful if an accuracy of at least 97% is obtained on the test set.
 - The model output is defined as a flag, indicating if the leaf is infected with powdery mildew or not and the associated probability of being infected or not. The farmers will take a picture of a leaves and upload them to the App.
 - Heuristics: The current detection process is manual verification, where an employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. With thousands of trees there is the possibility to produce inaccurate diagnostics due to human errors.
 - The dataset contains 4208 images taken from the client's crop fields. The images show healthy cherry leaves and cherry leaves that have powdery mildew.
 - The dataset is located on [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves).
 
 [Table Of Contents](#table-of-contents)
+
+## User Stories
+
+- As a client I want an easy to use dashboard, so that I can view and understand the date, model and outcomes.
+- As a client I want to view the average and variability images of healthy cherry leaves and cherry leaves infected with powdery mildew, so that I can visually differentiate between the two classifications.
+- As a client I want to view the difference between an average healthy cherry leaf and an average cherry leaf infected with powdery mildew, so that I can visually differentiate between the two classifications.
+- As a client I want to view an image montage for both healthy cherry leaves and cherry leaves infected with powdery mildew, so that I can visually differentiate between the two classifications.
+- As a client I want to upload images of cherry leaves and be given a prediction of the classification with above 97% accuracy, so that I can determine the health of the cherry tree.
+- As a client I want a downloadable report of the predictions given, so that I can retain a copy of the predictions.
 
 ## Dashboard Design - Streamlit App User Interface
 
@@ -99,7 +114,7 @@ Summary:
 
 ### Page 3: Powdery Mildew Detector
 
-- This page will fulfill business requirements 2 and 3 by predicting if a leaf is infected with powdery mildew or not.
+- This page will fulfil business requirements 2 and 3 by predicting if a leaf is infected with powdery mildew or not.
 - Link to download a set of images showing healthy leaves and leaves infected with powdery mildew for live prediction.
 - User Interface with a file uploader widget to allow the user to upload multiple leaf images. It will display the image and a prediction statement, indicating if the leaf is infected with powdery mildew or not and the probability associated with this prediction.
 - Report with image name and prediction result.
@@ -150,7 +165,7 @@ The navigation bar is visible on all dashboard pages and provides easy links to 
 
 <summary>Page 1: Introduction</summary>
 
-The introducion page provides the user with information about powdery mildew, the project summary, the dataset and the business requirements. There is also a link to this ReadMe file.
+The introduction page provides the user with information about powdery mildew, the project summary, the dataset and the business requirements. There is also a link to this ReadMe file.
 
 ![Introduction](readme_files/introduction.png)
 
@@ -175,7 +190,7 @@ The page gives the user the options to view the difference between average and v
 
 <summary>Page 3: Powdery Mildew Detector</summary>
 
-The detector page allows the user to upload images of cherry leaves to determine if the leaf is healthy or infected with powdery mildew. Each image is presented with a prediction and a graph depicting the probability of the predictions accuracy. There is then a report detailing the image name, proability accuracy and result. This report is available to download into a .csv file, which can be viewed easily in Microsoft Excel.
+The detector page allows the user to upload images of cherry leaves to determine if the leaf is healthy or infected with powdery mildew. Each image is presented with a prediction and a graph depicting the probability of the predictions accuracy. There is then a report detailing the image name, probability accuracy and result. This report is available to download into a .csv file, which can be viewed easily in Microsoft Excel.
 
 ![Detector](readme_files/detector.png)
 
@@ -267,7 +282,7 @@ The model testing can be viewed [here](readme_files/model_testing.pdf).
 | Visualizer   | Content                   | Pass        |
 | Visualizer   | 1st checkbox ticked       | Pass        |
 | Visualizer   | 1st checkbox unticked     | Pass        |
-| Visualizer   | 2nd checkboz ticked       | Pass        |
+| Visualizer   | 2nd checkbox ticked       | Pass        |
 | Visualizer   | 2nd checkbox unticked     | Pass        |
 | Visualizer   | 3rd checkbox ticked       | Pass        |
 | Visualizer   | 3rd checkbox unticked     | Pass        |
@@ -331,7 +346,7 @@ To deploy this app to Heroku from its GitHub repository:
 - Click on the 'Create app' button.
 
 #### Deploy in Heroku
-- Ensure requirements.txt file exists and contains the dependancies.
+- Ensure requirements.txt file exists and contains the dependencies.
 - Set the stack to Heroku-20 as follows:
     - In Heroku, click 'Account Settings' from the avatar menu.
     - Scroll to the 'API Key' section and click 'Reveal' then copy the key.
@@ -389,9 +404,10 @@ To deploy this app to Heroku from its GitHub repository:
 
 ## Credits
 
-- Code Instiute [Malaria Detector](https://github.com/Code-Institute-Solutions/WalkthroughProject01) project was used extensively as a reference when creating this project.
-- Code Institue [Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) template was used to create the project.
+- Code Institute [Malaria Detector](https://github.com/Code-Institute-Solutions/WalkthroughProject01) project was used extensively as a reference when creating this project.
+- Code Institute [Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) template was used to create the project.
 - This [StackOverflow](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository) post was used to fix the git add bug.
 - Details of powdery mildew were taken from this [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew) article.
+- CRISP-DM diagram taken from [Data Science Process Alliance](https://www.datascience-pm.com/crisp-dm-2/).
 
 [Table Of Contents](#table-of-contents)
