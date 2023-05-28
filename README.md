@@ -326,6 +326,16 @@ This was fixed by running the command ‘rm -f .git/index.lock’ as per this [S
 
 </details>
 
+<details>
+
+<summary>Incorrect Softmax Predictions</summary>
+
+The models using Softmax as the activation function initally gave the incorrect predictions as the outputs were reversed. This [Stack Overflow post](https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) suggested the cause of the bug. To fix, the labels were explicitly added to the prediction code (below) and corrected in the src/machine_learning/predictive_analysis.py file.
+
+![Softmax Bug](readme_files/softmax_bug.png)
+
+</details>
+
 ### Unfixed Bugs
 
 There are no known unfixed bugs.

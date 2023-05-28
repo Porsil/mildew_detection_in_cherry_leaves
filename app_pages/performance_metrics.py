@@ -45,17 +45,40 @@ def performance_metrics_body():
         st.image(model_loss, caption='Model Training Losses')
 
     st.success(
-        f"Both plots suggests the model is not severely overfitting or "
-        f"underfitting."
+        f"Both plots suggests the model exhibits a normal fit."
         f"\n\n")
 
     st.write("---")
 
     st.write("* ### Generalised Performance on Test Set")
 
+    st.info(
+        f"The following data shows the model loss and accuracy on the test "
+        f"dataset."
+        f"\n\n")
+
     st.dataframe(pd.DataFrame(load_test_evaluation(
         version), index=['Loss', 'Accuracy']))
 
     st.success(
-        f"The prediction accuracy of the test set data is 100%."
+        f"The prediction accuracy of the test set data is above 99%."
+        f"\n\n")
+    
+    st.info(
+        f"The following plot shows the confusion matrix for the test dataset.\n"
+        f"It shows the four possible combinations of outcomes:\n"
+        f"True Positive / Negative - The model prediction is correct\n"
+        f"False Positive / Negative - The model prediction is incorrect\n"
+        f"A good model has a high True rate and a low False rate."
+        f"\n\n")
+
+    confusion_matrix = plt.imread(
+        f"outputs/{version}/confusion_matrix.png")
+    st.image(confusion_matrix,
+             caption='Confusion Matrix of Test Dataset')
+
+    st.success(
+        f"The confusion matrix shows the model made one incorrect prediction "
+        f"when evaluating the test dataset where a leaf infected with powdery "
+        f"mildew was predicted to be healthy."
         f"\n\n")
