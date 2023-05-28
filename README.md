@@ -17,6 +17,7 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 ...
 - [Dashboard Design](#dashboard-design---streamlit-app-user-interface)
 - [Methodology](#methodology)
+- [Model](#model)
 - [Project Features](#project-features)
 - [Project Outcomes](#project-outcomes)
 
@@ -48,12 +49,14 @@ Summary:
 
 [Table Of Contents](#table-of-contents)
 
-## Hypothesis and how to Validate
+## Hypotheses and how to Validate
 
 1. Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
    - This can be verified by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
 2. Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
    - This can be verifed by evaluating the model on the test dataset, which should achieve at least 97% accuracy.
+3. The background of the image will affect the ML predictions.
+    - This can be verified by testing the model with new pictures of cherry leaves that contain a different background than the dataset images, which all show a single leaf on a beige coloured background.
 
 [Table Of Contents](#table-of-contents)
 
@@ -67,7 +70,7 @@ Summary:
 
 - Business Requirement 2: Classification
 
-  - Create and fit a machine learning model to predict if a given leaf is healthy or infected with powdery mildew.
+  - Create and fit a machine learning model to predict if a given leaf is healthy or infected with powdery mildew. This will be a binary classification task and will require to set the image shape.
   - The predictions should have a 97% accuracy level.
 
 - Business Requirement 3: Report
@@ -93,7 +96,7 @@ Summary:
 - As a client I want to view the average and variability images of healthy cherry leaves and cherry leaves infected with powdery mildew, so that I can visually differentiate between the two classifications.
 - As a client I want to view the difference between an average healthy cherry leaf and an average cherry leaf infected with powdery mildew, so that I can visually differentiate between the two classifications.
 - As a client I want to view an image montage for both healthy cherry leaves and cherry leaves infected with powdery mildew, so that I can visually differentiate between the two classifications.
-- As a client I want to upload images of cherry leaves and be given a prediction of the classification with above 97% accuracy, so that I can determine the health of the cherry tree.
+- As a client I want to upload images of cherry leaves and be given a prediction of the classification with above 97% accuracy, so that I can quickly determine the health of a given cherry tree.
 - As a client I want a downloadable report of the predictions given, so that I can retain a copy of the predictions.
 
 ## Dashboard Design - Streamlit App User Interface
@@ -148,6 +151,16 @@ An agile approach was implemented for the project using GitHub projects with the
 The project board can be viewed [here](https://github.com/users/Porsil/projects/7)
 
 [Table Of Contents](#table-of-contents)
+
+## Model
+
+Good model.........
+
+The model was created by trial and error to find a model that has a normal fit, refer to [testing](#testing).
+
+It is a sequential model containing the following:
+
+...................
 
 ## Project Features
 
@@ -240,13 +253,15 @@ The report can be viewed on the [Powdery Mildew Detector page](https://cherry-le
 
 -	Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
 
+This was validating by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
+
 An image montage shows that leaves infected with powdery mildew are easily identified due to the present of white deposits on the infected leaves.
 The average and variability images showed a pattern within the center of the leaf related to colour pigmentation. This is most notable in the variability images where the center of the healthy leaves looks black whereas the center for the infected leaves is not.
 
 ![Variability](readme_files/variability.png)
 
 The difference between averages study did not show patterns where we could intuitively differentiate one from another.
-The image montage, average and variability images and the difference between averages study can be viewed by selecting the 'Leaf Visualiser' option on the sidebar menu.
+The image montage, average and variability images and the difference between averages study can be viewed by selecting the 'Leaf Visualizer' option on the sidebar menu.
 
 Conclusion: Healthy leaves and infected leaves can be distinguished by their appearance as leaves infected with powdery mildew exhibit white marks.
 
@@ -254,7 +269,9 @@ Conclusion: Healthy leaves and infected leaves can be distinguished by their app
 
 -	Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
 
-The model accuracy was trained at over 99% with the train and validation datasets, and 100% accuracy was achieved on the test dataset.
+This was verifed by evaluating the model on the test dataset.
+
+The model accuracy was trained at over 99% with the train and validation datasets, and 99% accuracy was achieved on the test dataset.
 
 Conclusion: The model was successfully trained using a Convolutional Neural Network to classify if an image of a cherry leaf is healthy or infected with powdery mildew with a degree of accuracy of above 99%.
 
@@ -267,6 +284,8 @@ Conclusion: The model was successfully trained using a Convolutional Neural Netw
 <summary>ML Model Testing</summary>
 
 The model testing can be viewed [here](readme_files/model_testing.pdf).
+
+The version used for the dashboard was version 6, as this showed a normal fit with no sign of overfitting and had an accuracy level of above 97% to meet business requirement 2.
 
 </details>
 
@@ -314,7 +333,7 @@ The model testing can be viewed [here](readme_files/model_testing.pdf).
 
 Several issues were encountered with the CodeAnywhere IDE.
 
-Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were complete to ensure my project was submitted on time. This issue also meant that early stopped was added to each model, as running all 25 epochs would take several hours and have a high risk of disconnection. This in turn meant that it was harder to detect if the model was overfitting.
+Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were nearly complete to ensure my project would be submitted on time, before returning to create and fit further models. This issue also meant that early stopped was added to each model, as running all 25 epochs would take several hours and have a high risk of disconnection. This in turn meant that it was harder to detect if the model was overfitting.
 
 Secondly, during the model training impacted by the first issue, often the code that was saved and committed did not match the code what was in the workspace. Autosave was enabled and all code double checked to be saved by selecting File>Save All before the ‘git add’ and ‘git commit’ commands. This is shown in the commit for v4 where the code in Jupyter notebook 03_modelling_and_evaluation shows an error message for fitting the model, if this was true the outputs for the model would not have been generated.
 
@@ -417,6 +436,7 @@ To deploy this app to Heroku from its GitHub repository:
 - Code Institute [Malaria Detector](https://github.com/Code-Institute-Solutions/WalkthroughProject01) project was used extensively as a reference when creating this project.
 - Code Institute [Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) template was used to create the project.
 - This [StackOverflow](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository) post was used to fix the git add bug.
+- This [StackOverflow](- https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) post was used to fix the softmax bug.
 - Details of powdery mildew were taken from this [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew) article.
 - CRISP-DM diagram taken from [Data Science Process Alliance](https://www.datascience-pm.com/crisp-dm-2/).
 

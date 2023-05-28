@@ -8,8 +8,7 @@ def project_hypothesis_body():
 
     st.info(
         f"Cherry leaves with powdery mildew can de differentiated from "
-        f"healthy leaves by their appearance."
-        f"\n\n")
+        f"healthy leaves by their appearance.")
 
     st.success(
         f"An image montage shows that leaves infected with powdery mildew are "
@@ -22,19 +21,21 @@ def project_hypothesis_body():
         f"where we could intuitively differentiate one from another.\n\n The "
         f"image montage, average and variability images and the difference "
         f"between averages study can be viewed by selecting the 'Leaf "
-        f"Visualizer' option on the sidebar menu."
-        f"\n\n")
+        f"Visualizer' option on the sidebar menu.")
 
     st.write("* ### **Hypothesis 2**")
 
     st.info(
         f"Cherry leaves can be determined to be healthy or contain powdery "
-        f"mildew with a degree of 97% accuracy."
-        f"\n\n")
+        f"mildew with a degree of 97% accuracy.")
 
     st.success(
         f"The model was successfully trained using a Convolutional Neural "
         f"Network to classify if an image of a cherry leaf is healthy or "
         f"infected with powdery mildew with a degree of accuracy of above "
-        f"99%."
-        f"\n\n")
+        f"99%.")
+
+    st.write("* ### **Hypothesis 3**")
+
+    st.info(
+        f"The background of the image will affect the ML predictions.")

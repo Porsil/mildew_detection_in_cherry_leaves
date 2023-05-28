@@ -15,8 +15,12 @@ def powdery_mildew_detector_body():
     st.write("## **Powdery Mildew Detector**")
 
     st.info(
-        f"The client is interested in a dashboard that predicts if a cherry "
-        f"leaf is healthy or contains powdery mildew.")
+        f"As per business requirement 2 the client is interested in a "
+        f"dashboard that predicts if a cherry leaf is healthy or contains "
+        f"powdery mildew.\n\n"
+        f"As per business requirement 3, a report of the predicted outcomes "
+        f"can be downloaded via the 'Download Report' link available after "
+        f"any images have been uploaded.")
 
     st.write(
         f"* You can download a set of images containing healthy and infected "

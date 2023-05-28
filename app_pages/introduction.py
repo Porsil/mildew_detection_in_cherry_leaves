@@ -15,8 +15,7 @@ def introduction_body():
         f"most affected, but the mildew can appear on any above-ground part "
         f"of the plant. As the disease progresses, the spots get larger and "
         f"denser as large numbers of asexual spores are formed, and the "
-        f"mildew may spread up and down the length of the plant. "
-        f" \n\n")
+        f"mildew may spread up and down the length of the plant. ")
 
     st.info(
         f"### **Project Summary**\n\n"
@@ -35,15 +34,13 @@ def introduction_body():
         f"is 1 minute. The company has thousands of cherry trees, located on "
         f"multiple farms across the country. As a result, this manual process "
         f"is not scalable due to the time spent in the manual process "
-        f"inspection."
-        f" \n\n")
+        f"inspection.")
 
     st.info(
         f"### **Project Dataset**\n\n"
         f"The dataset contains 4208 images taken from the client's crop "
         f"fields. Half of the images show healthy cherry leaves and half show "
-        f"cherry leaves that have powdery mildew."
-        f" \n\n")
+        f"cherry leaves that have powdery mildew.")
 
     st.info(
         f"### **Business Requirements**\n\n"
@@ -52,8 +49,7 @@ def introduction_body():
         f"2 - The client is interested in a dashboard that predicts if a "
         f"cherry leaf is healthy or contains powdery mildew\n\n"
         f"3 - The client would like the dashboard to predict if a cherry "
-        f"leaf is healthy or contains powdery mildew with a 97% accuracy"
-        f" \n\n")
+        f"leaf is healthy or contains powdery mildew with a 97% accuracy")
 
     st.write(
         f"* For additional information, please visit the project "
