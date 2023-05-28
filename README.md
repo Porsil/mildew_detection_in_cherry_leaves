@@ -54,9 +54,9 @@ Summary:
 1. Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
    - This can be verified by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
 2. Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
-   - This can be verifed by evaluating the model on the test dataset, which should achieve at least 97% accuracy.
-3. The background of the image will affect the ML predictions.
-    - This can be verified by testing the model with new pictures of cherry leaves that contain a different background than the dataset images, which all show a single leaf on a beige coloured background.
+   - This can be verified by evaluating the model on the test dataset, which should achieve at least 97% accuracy.
+3. If the image has a different background to the beige background of the Kaggle dataset the model will predict false results.
+    - This can be verified by testing the model with new pictures of cherry leaves that contain a different background than the dataset images.
 
 [Table Of Contents](#table-of-contents)
 
@@ -253,7 +253,7 @@ The report can be viewed on the [Powdery Mildew Detector page](https://cherry-le
 
 -	Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
 
-This was validating by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
+This hypothesis was validated by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
 
 An image montage shows that leaves infected with powdery mildew are easily identified due to the present of white deposits on the infected leaves.
 The average and variability images showed a pattern within the center of the leaf related to colour pigmentation. This is most notable in the variability images where the center of the healthy leaves looks black whereas the center for the infected leaves is not.
@@ -263,17 +263,33 @@ The average and variability images showed a pattern within the center of the lea
 The difference between averages study did not show patterns where we could intuitively differentiate one from another.
 The image montage, average and variability images and the difference between averages study can be viewed by selecting the 'Leaf Visualizer' option on the sidebar menu.
 
-Conclusion: Healthy leaves and infected leaves can be distinguished by their appearance as leaves infected with powdery mildew exhibit white marks.
+Conclusion: This hypothesis was correct and healthy leaves and infected leaves can be distinguished by their appearance as leaves infected with powdery mildew exhibit white marks.
 
 ### Hypothesis 2
 
 -	Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
 
-This was verifed by evaluating the model on the test dataset.
+This was validated by evaluating the model on the test dataset.
 
 The model accuracy was trained at over 99% with the train and validation datasets, and 99% accuracy was achieved on the test dataset.
 
-Conclusion: The model was successfully trained using a Convolutional Neural Network to classify if an image of a cherry leaf is healthy or infected with powdery mildew with a degree of accuracy of above 99%.
+Conclusion: This hypothesis was correct as the model was successfully trained using a Convolutional Neural Network to classify if an image of a cherry leaf is healthy or infected with powdery mildew with a degree of accuracy of above 99%.
+
+### Hypothesis 3
+
+- If the image has a different background to the beige background of the Kaggle dataset the model will predict false results.
+
+This was validated by uploading the following images to the dashboard:
+
+![Hypothesis Pictures](readme_files/hypothesis3_images.png)
+
+The results were 7 correct predictions and 3 incorrect predictions as follows:
+
+![Hypothesis Results](readme_files/hypthesis3_results.png)
+
+This insight will be taken to the client to ensure they are aware of the image background requirements for the best model performance.
+
+Conclusion: This hypothesis was correct as the model incorrectly predicted the classification of 3 of the 10 images.
 
 [Table Of Contents](#table-of-contents)
 
@@ -309,7 +325,7 @@ The version used for the dashboard was version 6, as this showed a normal fit wi
 | Visualiser   | Infected montage          | Pass        |
 | Detector     | Content                   | Pass        |
 | Detector     | Kaggle link               | Pass        |
-| Detector     | Drag add drop file upload | Pass        |
+| Detector     | Drag and drop file upload | Pass        |
 | Detector     | Browse file upload        | Pass        |
 | Detector     | Show uploaded images      | Pass        |
 | Detector     | Show predictions          | Pass        |
@@ -349,7 +365,7 @@ This was fixed by running the command ‘rm -f .git/index.lock’ as per this [S
 
 <summary>Incorrect Softmax Predictions</summary>
 
-The models using Softmax as the activation function initally gave the incorrect predictions as the outputs were reversed. This [Stack Overflow post](https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) suggested the cause of the bug. To fix, the labels were explicitly added to the prediction code (below) and corrected in the src/machine_learning/predictive_analysis.py file.
+The models using Softmax as the activation function initially gave the incorrect predictions as the outputs were reversed. This [Stack Overflow post](https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) suggested the cause of the bug. To fix, the labels were explicitly added to the prediction code (below) and corrected in the src/machine_learning/predictive_analysis.py file.
 
 ![Softmax Bug](readme_files/softmax_bug.png)
 

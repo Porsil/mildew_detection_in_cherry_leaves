@@ -41,9 +41,9 @@ def leaf_visualizer_body():
 
         st.success(
             f"We notice in the average and variability images a pattern with "
-            f"the colour pigmentation of the leaf center where the center of "
+            f"the colour pigmentation of the leaf centre where the centre of "
             f"the average image of healthy leaves appears greener and the "
-            f"center of the variability image for healthy leaves appears "
+            f"centre of the variability image for healthy leaves appears "
             f"darker.")
 
         st.write("---")
@@ -61,7 +61,7 @@ def leaf_visualizer_body():
 
         st.warning(
             f"The average images show a pattern with the colour pigmentation "
-            f"of the leaf center where the center of the average image of "
+            f"of the leaf centre where the centre of the average image of "
             f"healthy leaves appears greener. The difference image does not "
             f"show patterns where we could intuitively differentiate one from "
             f"another.")
