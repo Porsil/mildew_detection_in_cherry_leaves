@@ -1,3 +1,10 @@
 inputs/cherry_leaf_dataset/cherry-leaves/test/*
 inputs/cherry_leaf_dataset/cherry-leaves/train/*
 readme_files/*
+readme.md
+outputs/v2/*
+outputs/v3/*
+outputs/v4/*
+outputs/v5/*
+outputs/v7/*
+outputs/v8/*
