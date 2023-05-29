@@ -9,7 +9,7 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 ## Table of Contents
  
 - [Business Requirements](#business-requirements)
-- [Hypothesis and how to Validate](#hypothesis-and-how-to-validate)
+- [Hypotheses and how to Validate](#hypotheses-and-how-to-validate)
 - [Rational to Map Business Requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
 - [User Stories](#user-stories)
@@ -17,7 +17,7 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 ...
 - [Dashboard Design](#dashboard-design---streamlit-app-user-interface)
 - [Methodology](#methodology)
-- [Model](#model)
+- [Rationale for the Model](#rationale-for-the-model)
 - [Project Features](#project-features)
 - [Project Outcomes](#project-outcomes)
 
@@ -99,6 +99,8 @@ Summary:
 - As a client I want to upload images of cherry leaves and be given a prediction of the classification with above 97% accuracy, so that I can quickly determine the health of a given cherry tree.
 - As a client I want a downloadable report of the predictions given, so that I can retain a copy of the predictions.
 
+[Table Of Contents](#table-of-contents)
+
 ## Dashboard Design - Streamlit App User Interface
 
 ### Page 1: Introduction
@@ -125,7 +127,7 @@ Summary:
 
 ### Page 4: Project Hypothesis and Validation
 
-- Detail each [hypothesis](#hypothesis-and-how-to-validate), how it was validated and the conclusion.
+- Detail each [hypotheses](#hypotheses-and-how-to-validate), how it was validated and the conclusion.
 
 ### Page 5: ML Performance Metrics
 
@@ -152,15 +154,51 @@ The project board can be viewed [here](https://github.com/users/Porsil/projects/
 
 [Table Of Contents](#table-of-contents)
 
-## Model
+## Rationale for the Model
 
-Good model.........
+A good model generates accurate predictions as the machine learning model generalizes well from the training data and allows for accurate predictions on unseen data. A good model is also as simple as possible and does not have an unnecessarily complex neural network or high computational power.
 
-The model was created by trial and error to find a model that has a normal fit, refer to [testing](#testing).
+When a model trains for too long on the training dataset or if the model is too complex, it can start to learn the noise or irrelevant information from the dataset. This causes the model to fit too closely to the training set and become overfitted where it is unable to generalize well to new data. Overfitting can be detected by seeing how the model performs on the validation and test datasets.
 
-It is a sequential model containing the following:
+Underfitting can also occur where the model cannot determine a meaningful relationship between the input and output data. Underfitting can be detected by seeing how the model performs on the training dataset, as the accuracy of the training dataset will be low. This is also be translated into low accuracy over the validation and test datasets.
 
-...................
+### Model Creation
+
+As this project is an image classification task, a Convolutional Neural Network (CNN) will be created using Tensorflow. The project requires a binary image classification model as the outcome can be one of two choices: healthy or infected.
+
+There are two choices available for binary classification tasks. 1 neuron with sigmoid as activation function or 2 neurons with softmax as activation function. Both functions were used to create and fit models during the testing phase.
+
+The model was created by trial and error, considering any underfitting or overfitting of previous versions to find a model that has a normal fit, refer to [testing](#testing). Based on the model evaluation data, version 6 was chosen for the dashboard.
+
+The model created is a sequential model containing the following:
+
+- Convolutional layers: used to select the dominant pixel value from the non-dominant pixels in images using filters to find patterns (or features) in the image.
+  - 3 Convolution layers were used in the model.
+  - Conv2D was chosen as the images are 2D.
+  - The number of filters chosen was 32, 16 then 8 to keep the complexity low.
+  - The kernel size used was 3x3 as this is regarded as the most efficient.
+  - Activation 'Relu' used as it is simple and effective with hidden layers of a binary classification model.
+
+- Pooling layers: used to reduce the image size by extracting only the dominant pixels (or features) from the image.
+  - After each convolution layer is a pooling layer. The combination of these two layers removes the nonessential part of the image and reduces complexity.
+  - MaxPooling was used as this selects the brighter pixels from the image i.e. the white (brighter pixel) powdery mildew on a green (darker pixels) leaf.
+  
+- Flatten layer: used to flatten the matrix into a vector, which means a single list of all values, that is fed into a dense layer.
+
+- Dense layer: a fully-connected neural network layer.
+  - 64 nodes were chosen through the trial and error process.
+  - Activation 'Relu' used.
+
+- Dropout layer: a regularization layer used to reduce the chance of overfitting the neural network.
+  - 0.3 was used, which was deemed appropriate for the number of images available.
+
+- Output layer:
+  - Softmax was chosen as the activation function through the trial and error process. As such, 2 nodes were chosen as there are two output possibilities and categorical_crossentropy was chosen for loss.
+  - Adam optimizer was chosen through the trial and error process.
+
+![Model](readme_files/model.png)
+
+[Table Of Contents](#table-of-contents)
 
 ## Project Features
 
@@ -349,7 +387,7 @@ The version used for the dashboard was version 6, as this showed a normal fit wi
 
 Several issues were encountered with the CodeAnywhere IDE.
 
-Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were nearly complete to ensure my project would be submitted on time, before returning to create and fit further models. This issue also meant that early stopped was added to each model, as running all 25 epochs would take several hours and have a high risk of disconnection. This in turn meant that it was harder to detect if the model was overfitting.
+Firstly, the IDE would often go offline for 2 to 3 seconds. For the most part this was not an issue but if this occurred whilst executing a cell in a Jupyter notebook the IDE would crash and require restarting. This meant it was particularly difficult to fit the model as successfully executing this process often took up to an hour. As such not as many models were trained as I would have hoped. I decided to stop after v5 and ensure my dashboard and ReadMe report were nearly complete to ensure my project would be submitted on time, before returning to create and fit further models. This issue also meant that early stopped was added to each model, as running all 25 epochs would take several hours and have a high risk of disconnection. This in turn meant that it was harder to detect if the model was overfitting. On return to model fitting, the import libraries was split into individual code cells as this seemed to cause the system to crash less often.
 
 Secondly, during the model training impacted by the first issue, often the code that was saved and committed did not match the code what was in the workspace. Autosave was enabled and all code double checked to be saved by selecting File>Save All before the ‘git add’ and ‘git commit’ commands. This is shown in the commit for v4 where the code in Jupyter notebook 03_modelling_and_evaluation shows an error message for fitting the model, if this was true the outputs for the model would not have been generated.
 
@@ -451,6 +489,7 @@ To deploy this app to Heroku from its GitHub repository:
 
 - Code Institute [Malaria Detector](https://github.com/Code-Institute-Solutions/WalkthroughProject01) project was used extensively as a reference when creating this project.
 - Code Institute [Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) template was used to create the project.
+- Code Institue lessons on Data Analytics Packages > ML:TensorFlow
 - This [StackOverflow](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository) post was used to fix the git add bug.
 - This [StackOverflow](- https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) post was used to fix the softmax bug.
 - Details of powdery mildew were taken from this [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew) article.
