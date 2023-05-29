@@ -6,7 +6,7 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 
 [View the live project here](https://cherry-leaf-mildew-detection.herokuapp.com/)
 
-## Table of Contents 
+## Table of Contents
 
 - [Business Requirements](#business-requirements)
 - [Hypotheses and how to Validate](#hypotheses-and-how-to-validate)
@@ -50,7 +50,7 @@ Summary:
 2. Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
    - This can be verified by evaluating the model on the test dataset, which should achieve at least 97% accuracy.
 3. If the image has a different background to the beige background of the Kaggle dataset the model will predict false results.
-    - This can be verified by testing the model with new pictures of cherry leaves that contain a different background than the dataset images.
+   - This can be verified by testing the model with new pictures of cherry leaves that contain a different background than the dataset images.
 
 [Table Of Contents](#table-of-contents)
 
@@ -167,6 +167,7 @@ The model was created by trial and error, considering any underfitting or overfi
 The model created is a sequential model containing the following:
 
 - Convolutional layers: used to select the dominant pixel value from the non-dominant pixels in images using filters to find patterns (or features) in the image.
+
   - 3 Convolution layers were used in the model.
   - Conv2D was chosen as the images are 2D.
   - The number of filters chosen was 32, 16 then 8 to keep the complexity low.
@@ -176,14 +177,15 @@ The model created is a sequential model containing the following:
 - Pooling layers: used to reduce the image size by extracting only the dominant pixels (or features) from the image.
   - After each convolution layer is a pooling layer. The combination of these two layers removes the nonessential part of the image and reduces complexity.
   - MaxPooling was used as this selects the brighter pixels from the image i.e. the white (brighter pixel) powdery mildew on a green (darker pixels) leaf.
-  
 - Flatten layer: used to flatten the matrix into a vector, which means a single list of all values, that is fed into a dense layer.
 
 - Dense layer: a fully-connected neural network layer.
+
   - 64 nodes were chosen through the trial and error process.
   - Activation 'Relu' used.
 
 - Dropout layer: a regularization layer used to reduce the chance of overfitting the neural network.
+
   - 0.3 was used, which was deemed appropriate for the number of images available.
 
 - Output layer:
@@ -283,7 +285,7 @@ The report can be viewed on the [Powdery Mildew Detector page](https://cherry-le
 
 ### Hypothesis 1
 
--	Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
+- Cherry leaves with powdery mildew can de differentiated from healthy leaves by their appearance.
 
 This hypothesis was validated by creating an average image study and image montage to determine differences in the appearance of healthy leaves and leaves affected with powdery mildew.
 
@@ -299,7 +301,7 @@ Conclusion: This hypothesis was correct and healthy leaves and infected leaves c
 
 ### Hypothesis 2
 
--	Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
+- Cherry leaves can be determined to be healthy or contain powdery mildew with a degree of 97% accuracy.
 
 This was validated by evaluating the model on the test dataset.
 
@@ -341,31 +343,31 @@ The version used for the dashboard was version 6, as this showed a normal fit wi
 
 <summary>Dashboard Testing</summary>
 
-| Page         | Feature                   | Pass / Fail |
-|--------------|:-------------------------:|:-----------:|
-| Introduction | Content                   | Pass        |
-| Introduction | Nav link                  | Pass        |
-| Introduction | ReadMe link               | Pass        |
-| Visualizer   | Content                   | Pass        |
-| Visualizer   | 1st checkbox ticked       | Pass        |
-| Visualizer   | 1st checkbox unticked     | Pass        |
-| Visualizer   | 2nd checkbox ticked       | Pass        |
-| Visualizer   | 2nd checkbox unticked     | Pass        |
-| Visualizer   | 3rd checkbox ticked       | Pass        |
-| Visualizer   | 3rd checkbox unticked     | Pass        |
-| Visualizer   | Healthy montage           | Pass        |
-| Visualiser   | Infected montage          | Pass        |
-| Detector     | Content                   | Pass        |
-| Detector     | Kaggle link               | Pass        |
-| Detector     | Drag and drop file upload | Pass        |
-| Detector     | Browse file upload        | Pass        |
-| Detector     | Show uploaded images      | Pass        |
-| Detector     | Show predictions          | Pass        |
-| Detector     | Show probability graph    | Pass        |
-| Detector     | Analysis report           | Pass        |
-| Detector     | Downloadable report       | Pass        |
-| Hypothesis   | Content                   | Pass        |
-| Performance  | Content                   | Pass        |
+| Page         |          Feature          | Pass / Fail |
+| ------------ | :-----------------------: | :---------: |
+| Introduction |          Content          |    Pass     |
+| Introduction |         Nav link          |    Pass     |
+| Introduction |        ReadMe link        |    Pass     |
+| Visualizer   |          Content          |    Pass     |
+| Visualizer   |    1st checkbox ticked    |    Pass     |
+| Visualizer   |   1st checkbox unticked   |    Pass     |
+| Visualizer   |    2nd checkbox ticked    |    Pass     |
+| Visualizer   |   2nd checkbox unticked   |    Pass     |
+| Visualizer   |    3rd checkbox ticked    |    Pass     |
+| Visualizer   |   3rd checkbox unticked   |    Pass     |
+| Visualizer   |      Healthy montage      |    Pass     |
+| Visualiser   |     Infected montage      |    Pass     |
+| Detector     |          Content          |    Pass     |
+| Detector     |        Kaggle link        |    Pass     |
+| Detector     | Drag and drop file upload |    Pass     |
+| Detector     |    Browse file upload     |    Pass     |
+| Detector     |   Show uploaded images    |    Pass     |
+| Detector     |     Show predictions      |    Pass     |
+| Detector     |  Show probability graph   |    Pass     |
+| Detector     |      Analysis report      |    Pass     |
+| Detector     |    Downloadable report    |    Pass     |
+| Hypothesis   |          Content          |    Pass     |
+| Performance  |          Content          |    Pass     |
 
 </details>
 
@@ -416,6 +418,7 @@ There are no known unfixed bugs.
 To deploy this app to Heroku from its GitHub repository:
 
 #### Create a Heroku App:
+
 - Log in to [Heroku](https://dashboard.heroku.com/apps). If required, create an account.
 - Click the 'New' button in the top right and select 'Create new app' from the drop-down menu.
 - Enter a name for the app in the 'App name' field, this must be an unique and should be meaningful to the app's content.
@@ -423,13 +426,14 @@ To deploy this app to Heroku from its GitHub repository:
 - Click on the 'Create app' button.
 
 #### Deploy in Heroku
+
 - Ensure requirements.txt file exists and contains the dependencies.
 - Set the stack to Heroku-20 as follows:
-    - In Heroku, click 'Account Settings' from the avatar menu.
-    - Scroll to the 'API Key' section and click 'Reveal' then copy the key.
-    - In the workspace, Log in to the Heroku command line interface using 'heroku login -i'.
-    - Enter your email and copied API when prompted.
-    - Use the command 'heroku stack:set heroku-20 -a yourappname'. yourappname is the name given to the app in the 'Create a Heroku App' section above.
+  - In Heroku, click 'Account Settings' from the avatar menu.
+  - Scroll to the 'API Key' section and click 'Reveal' then copy the key.
+  - In the workspace, Log in to the Heroku command line interface using 'heroku login -i'.
+  - Enter your email and copied API when prompted.
+  - Use the command 'heroku stack:set heroku-20 -a yourappname'. yourappname is the name given to the app in the 'Create a Heroku App' section above.
 - Ensure the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 - Ensure a Procfile is present and contains the code 'web: sh setup.sh && streamlit run app.py'.
 - Ensure the code is committed and pushed to GitHub.
@@ -440,11 +444,13 @@ To deploy this app to Heroku from its GitHub repository:
 - The app is now live, click 'View' to view the deployed site.
 
 ### Forking the repository
+
 - Open the [Mildew Detection in Cherry Leaves](https://github.com/Porsil/mildew_detection_in_cherry_leaves) repository.
 - Click the 'Fork' button in the top right.
 - This creates a copy of the repository.
 
 ### Cloning the repository
+
 - Open the [Mildew Detection in Cherry Leaves](https://github.com/Porsil/mildew_detection_in_cherry_leaves) repository.
 - Click the green '<> Code' button. Select the preferred cloning option from the list then copy the link provided.
 - Change the current working directory to the location where you want the cloned directory.
@@ -485,7 +491,7 @@ To deploy this app to Heroku from its GitHub repository:
 - Code Institute [Mildew Detection in Cherry Leaves](https://github.com/Code-Institute-Solutions/milestone-project-mildew-detection-in-cherry-leaves) template was used to create the project.
 - Code Institue lessons on Data Analytics Packages > ML:TensorFlow
 - This [StackOverflow](https://stackoverflow.com/questions/38004148/another-git-process-seems-to-be-running-in-this-repository) post was used to fix the git add bug.
-- This [StackOverflow](- https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) post was used to fix the softmax bug.
+- This [StackOverflow](https://stackoverflow.com/questions/54377389/keras-imagedatagenerator-why-are-the-outputs-of-my-cnn-reversed) post was used to fix the softmax bug.
 - Details of powdery mildew were taken from this [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew) article.
 - CRISP-DM diagram taken from [Data Science Process Alliance](https://www.datascience-pm.com/crisp-dm-2/).
 
