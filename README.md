@@ -6,28 +6,22 @@ Mildew detection in cherry leaves is a dashboard app that uses Machine Learning 
 
 [View the live project here](https://cherry-leaf-mildew-detection.herokuapp.com/)
 
-## Table of Contents
- 
+## Table of Contents 
+
 - [Business Requirements](#business-requirements)
 - [Hypotheses and how to Validate](#hypotheses-and-how-to-validate)
 - [Rational to Map Business Requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
 - [User Stories](#user-stories)
-
-...
 - [Dashboard Design](#dashboard-design---streamlit-app-user-interface)
 - [Methodology](#methodology)
 - [Rationale for the Model](#rationale-for-the-model)
 - [Project Features](#project-features)
 - [Project Outcomes](#project-outcomes)
-
-...
 - [Hypothesis Outcomes](#hypothesis-outcomes)
 - [Testing](#testing)
 - [Bugs](#bugs)
 - [Deployment](#deployment)
-
-...
 - [Languages and Libraries](#languages-and-libraries)
 - [Credits](#credits)
 
